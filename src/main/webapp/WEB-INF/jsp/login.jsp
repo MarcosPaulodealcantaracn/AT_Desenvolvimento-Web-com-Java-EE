@@ -44,7 +44,7 @@
 					class="form-control">
 			</div>
 
-			<button type="submit" class="btn btn-primary">Logar:</button>
+			<button type="submit" class="btn btn-primary">Logar</button>
 		</form>
 	</div>
 </body>

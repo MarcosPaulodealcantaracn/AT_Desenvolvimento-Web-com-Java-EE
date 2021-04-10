@@ -25,7 +25,7 @@ public class LocacaoController {
 	public String showDetalhe(Model model, @SessionAttribute("user") Usuario usuario ) {
 		
 		model.addAttribute("lista", locacaoService.obterLista(usuario));
-		model.addAttribute("solicitantes", solicitanteService.obterLista());
+		model.addAttribute("solicitantes", solicitanteService.obterLista(usuario));
 		
 		return "locacao/detalhe";
 	}

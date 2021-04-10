@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.model.negocio.Solicitante;
 import br.edu.infnet.model.negocio.Usuario;
+import br.edu.infnet.model.service.LocacaoService;
 import br.edu.infnet.model.service.SolicitanteService;
 
 @Controller
@@ -17,11 +18,14 @@ public class SolicitanteController {
 		
 	@Autowired
 	private SolicitanteService solicitanteService;
+	@Autowired
+	private LocacaoService locacaoService;
 
 	@GetMapping(value = "/solicitante")
-	public String showDetalhe(Model model) {
+	public String showDetalhe(Model model, @SessionAttribute("user") Usuario usuario) {
 		
-		model.addAttribute("lista", solicitanteService.obterLista());
+		model.addAttribute("lista", solicitanteService.obterLista(usuario));
+		model.addAttribute("locacao", locacaoService.obterLista());
 		
 		return "solicitante/detalhe";
 	}
@@ -47,5 +51,9 @@ public class SolicitanteController {
 		}
 		
 		return "redirect:/solicitante";
+	}
+
+	private String showDetalhe(Model model) {
+		return null;
 	}
 }

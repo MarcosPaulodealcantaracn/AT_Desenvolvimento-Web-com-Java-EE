@@ -57,7 +57,7 @@ public class UsuarioController {
 		try {
 			usuarioService.excluir(id);
 		} catch (Exception e) {
-			model.addAttribute("mensagem", "Impossível excluir o usuario: " + e.getMessage());
+			model.addAttribute("mensagem", "Não é possivel excluir o usuario" + e.getMessage());
 			
 			return showDetalhe(model);
 		}

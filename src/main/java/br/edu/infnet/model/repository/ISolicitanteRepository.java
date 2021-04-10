@@ -14,5 +14,7 @@ public interface ISolicitanteRepository extends CrudRepository<Solicitante, Inte
 	
 	@Query("from Solicitante s where s.usuario.id=:id")
 	List<Solicitante>obterLista(Integer id, Sort by);
+
+	
 	
 }
